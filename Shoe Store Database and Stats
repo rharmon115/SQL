@@ -1,0 +1,30 @@
+--Creating Shoe Store Database
+
+CREATE TABLE shoe_store (id integer primary key, name text, price real, quantity integer, date_sold numeric);
+
+INSERT INTO shoe_store VALUES (1, "Air Jordans", 225.96, 2, 2023); 
+INSERT INTO shoe_store VALUES (2, "KDs", 215.99, 4, 2022); 
+INSERT INTO shoe_store VALUES (3, "Starbury", 99.99, 5, 2015);
+INSERT INTO shoe_store VALUES (4, "Shaq", 49.49, 3, 2009);
+INSERT INTO shoe_store VALUES (5, "Pennys", 272.01, 8, 2011);
+INSERT INTO shoe_store VALUES (6, "Black Mamba", 250.24, 3, 2023);
+INSERT INTO shoe_store VALUES (7, "The Answer", 199.03, 11, 2003);
+INSERT INTO shoe_store VALUES (8, "LeBrons", 239.23, 6, 2017);
+INSERT INTO shoe_store VALUES (9, "Greek Freak", 175.34, 7, 2021);
+INSERT INTO shoe_store VALUES (10, "Converse Allstars", 69.99, 17, 2001);
+INSERT INTO shoe_store VALUES (11, "The Questions", 185.99, 24, 2008);
+INSERT INTO shoe_store VALUES (12, "Way of Wade", 124.99, 3, 2019);
+INSERT INTO shoe_store VALUES (13, "Ja1's", 139.99, 18, 2023); 
+INSERT INTO shoe_store VALUES (14, "Kyrie's", 169.75, 15, 2006);
+INSERT INTO shoe_store VALUES (15, "JT1's", 179.23, 5, 2018);
+
+--Display the database where price is over 175.00
+
+SELECT * FROM shoe_store
+WHERE PRICE > 175.00
+ORDER BY price ASC;
+
+-- How many shoes were sold after 2020?
+
+SELECT SUM(quantity) FROM shoe_store
+WHERE date_sold <= 2020

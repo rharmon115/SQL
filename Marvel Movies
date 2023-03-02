@@ -1,0 +1,57 @@
+--Creating Table to Show Marvel Movies
+
+CREATE TABLE marvel_movies (
+id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, 
+release_date INTEGER, 
+rating INTEGER);
+
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Black Panther", 2017, 9.5);
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Iron Man", 2008, 9.2);
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Captain America", 2011, 8.7);
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Dr. Strange", 2016, 8.2);
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Avengers", 2012, 8.4);
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Thor", 2011, 8.1);
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Ant Man", 2015, 8.3);
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Guardians of the Galaxy", 2014, 9.1);
+INSERT INTO marvel_movies (title, release_date, rating) VALUES ("Spiderman Homecoming", 2019, 8.7);
+
+
+CREATE TABLE marvel_sequels (
+sequel_id
+INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, 
+release_date INTEGER, 
+rating INTEGER);
+
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Wakanda Forever", 2023, 9.5);
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Iron Man 2", 2010, 9.2);
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Captain America: Winter Soldier", 2014, 8.9);
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Dr. Strange MoM", 2022, 8.5);
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Avengers: Age of Ultron", 2015, 9.8);
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Thor: The Dark World", 2013, 7.0);
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Ant Man & The Wasp", 2018, 8.4);
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Guardians of the Galaxy Vol.2", 2017, 9.0);
+INSERT INTO marvel_sequels (title, release_date, rating) VALUES ("Spiderman Far From Home", 2019, 9.2);
+
+CREATE TABLE marvel_trilogy (
+trilogy_id
+INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, 
+release_date INTEGER, 
+rating INTEGER);
+
+INSERT INTO marvel_trilogy (title, release_date, rating) VALUES ("Iron Man 3", 2013, 9.2);
+INSERT INTO marvel_trilogy (title, release_date, rating) VALUES ("Captain America: Civil War", 2016, 8.9);
+INSERT INTO marvel_trilogy (title, release_date, rating) VALUES ("Avengers: Infinity War", 2015, 9.8);
+INSERT INTO marvel_trilogy (title, release_date, rating) VALUES ("Thor: Ragnorok", 2017, 9.0);
+INSERT INTO marvel_trilogy (title, release_date, rating) VALUES ("Ant Man & The Wasp: Quantamania", 2023, 8.4);
+INSERT INTO marvel_trilogy (title, release_date, rating) VALUES ("Guardians of the Galaxy Vol.3", 2023, 9.0);
+
+
+--Join tables to show marvel movie and subsequent sequel along with release date
+
+SELECT marvel_movies.title AS original, marvel_movies.release_date, marvel_sequels.title AS sequeL, marvel_sequels.release_date
+FROM marvel_movies
+JOIN marvel_sequels
+ON marvel_movies.id = marvel_sequels.sequel_id
+ORDER BY original
+
+
